@@ -32,12 +32,12 @@
 	if(isset($_POST['search']))
 	{
 		$search = str_replace(' ', '+', $_POST['keyword'], $count);
-		$url = 'http://www.nhaccuatui.com/tim-kiem?q='.$search;
+		$url = 'http://www.nhaccuatui.com/tim-kiem?q='.$search.'&b=keyword&l=tat-ca&s=default';
 		$html = file_get_html($url);
 ?>
 Danh sách bài hát bạn tìm:<br /><br />
 <?php
-		foreach ($html -> find('.item_content') as $key => $value) {
+		foreach ($html -> find('.sn_search_single_song') as $key => $value) {
 			$link = $value -> find('a',0);
 			$id = $link -> key;
 ?>
@@ -51,6 +51,6 @@ Danh sách bài hát bạn tìm:<br /><br />
 ?>
 	
 <br />
-Được viết bởi <a href="http://www.writecodetolife.tk/">Peter Dinh</a>
+Được viết bởi <a href="https://peterdinh.tk/">Peter Dinh</a>
 </body>
 </html>
